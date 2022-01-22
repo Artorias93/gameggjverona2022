@@ -22,7 +22,8 @@ public class PlayerCollisionInteractions : MonoBehaviour
              // continue to be affected by physics
              // and moves even if we are stopping
              // the world for the game over
-             other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+             // other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+             // other.gameObject.enable
         }
     }
 }

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float verticalJumpSpeed;
     [SerializeField] public float sideMovementSpeed;
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private LayerMask obstacleLayerMask;
     
     private float heightOfCenter;
     private int horizontalMovement;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(upButton)
-            && isTouchingGround())
+            && isGrounded())
         {
             rb.velocity = new Vector2(
                 rb.velocity.x,
@@ -57,13 +58,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity.y);
     }
 
-    private bool isTouchingGround()
+    private bool isGrounded()
     {
         return Physics2D.Raycast(
             transform.position,
             - UpsideDownSign() * Vector2.up,
             heightOfCenter + 0.1f,
-            groundLayerMask
+            groundLayerMask | obstacleLayerMask
         );
     }
 

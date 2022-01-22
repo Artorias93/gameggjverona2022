@@ -156,6 +156,9 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-4868856568179653815
 MonoBehaviour:
   m_ObjectHideFlags: 0

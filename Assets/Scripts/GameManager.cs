@@ -18,10 +18,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator aboveSpawningCoro;
     private IEnumerator belowSpawningCoro;
+
+    private int UILayerIndex;
     
     // Start is called before the first frame update
     void Start()
     {
+        UILayerIndex = LayerMask.NameToLayer("UI");
+        
         aboveSpawningCoro = StartSpawning(true, aboveObstacles);
         belowSpawningCoro = StartSpawning(false, belowObstacles);
         StartCoroutine(aboveSpawningCoro);
@@ -90,7 +94,7 @@ public class GameManager : MonoBehaviour
         var allGameObjects = FindObjectsOfType<GameObject>();
         foreach (var go in allGameObjects)
         {
-            if (go != this.gameObject && go.layer == 0)
+            if (go != this.gameObject && go.layer != UILayerIndex)
             {
                 foreach (var c in go.GetComponents<MonoBehaviour>())
                 {
