@@ -6,19 +6,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Collider2D coll;
+    private Rigidbody2D rb;
+    private Collider2D coll;
     [SerializeField] private KeyCode upButton;
     [SerializeField] private KeyCode leftButton;
     [SerializeField] private KeyCode downButton;
     [SerializeField] private KeyCode rightButton;
     [SerializeField] public float verticalJumpSpeed;
+    [SerializeField] public float jumpTime; //maybe calculate it based on verticalJumpSpeed?
+    [SerializeField] public float endedJumpEarlySpeed = 250f;
     [SerializeField] public float sideMovementSpeed;
     [SerializeField] private LayerMask groundLayerMask;
     
     private float heightOfCenter;
     private int horizontalMovement;
-    
+    private Timer jumpTimer;
+
+    void Awake()
+    {
+        //dunno why this time unity wants these GetComponent in Awake
+        //usually they work fine in Start
+        rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +38,16 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(upButton)
-            && isTouchingGround())
+    {        
+        if (Input.GetKeyDown(upButton) && isTouchingGround())
         {
-            rb.velocity = new Vector2(
-                rb.velocity.x,
-                UpsideDownSign() * verticalJumpSpeed
-            );
+            rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
+            jumpTimer = new Timer(jumpTime);
+            jumpTimer.Start();
+        }
+        else if(Input.GetKeyUp(upButton) && !jumpTimer.HasExpired())
+        {
+            rb.AddForce(Vector2.down * UpsideDownSign() * endedJumpEarlySpeed); //this should be in FixedUpdate
         }
 
         if (Input.GetKey(rightButton) && !Input.GetKey(leftButton))
