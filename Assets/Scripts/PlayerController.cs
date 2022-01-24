@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Collider2D coll;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Collider2D coll;
     [SerializeField] private KeyCode upButton;
     [SerializeField] private KeyCode leftButton;
     [SerializeField] private KeyCode downButton;
@@ -17,18 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float endedJumpEarlySpeed = 250f;
     [SerializeField] public float sideMovementSpeed;
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private LayerMask obstacleLayerMask;
     
     private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
-
-    void Awake()
-    {
-        //dunno why this time unity wants these GetComponent in Awake
-        //usually they work fine in Start
-        rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<Collider2D>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +31,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
-        if (Input.GetKeyDown(upButton) && isTouchingGround())
+    {
+        if (Input.GetKeyDown(upButton)
+            && isGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
             jumpTimer = new Timer(jumpTime);
@@ -70,13 +64,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity.y);
     }
 
-    private bool isTouchingGround()
+    private bool isGrounded()
     {
         return Physics2D.Raycast(
             transform.position,
             - UpsideDownSign() * Vector2.up,
             heightOfCenter + 0.1f,
-            groundLayerMask
+            groundLayerMask | obstacleLayerMask
         );
     }
 
