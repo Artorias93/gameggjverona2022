@@ -7,17 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4868856568179653815, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: eventDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel0After2Sec
+      objectReference: {fileID: 0}
+    - target: {fileID: -4868856568179653815, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: eventDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -4868856568179653815, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: eventDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: usePickupButton
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: givePickupButton
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.25
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71,5 +91,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 465950979374074621, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+--- !u!1 &4345658544470683473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 465950979374074621, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+  m_PrefabInstance: {fileID: 4195528144901809580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1876929192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345658544470683473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eac2ba151a3e234ba6a902ded66717f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  areInContactDistance: 1.5
