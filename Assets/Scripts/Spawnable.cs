@@ -9,6 +9,7 @@ public class Spawnable : MonoBehaviour
     private void Awake()
     {
         Assert.IsNotNull(GetComponent<Rigidbody2D>());
+
     }
 
     // Start is called before the first frame update
