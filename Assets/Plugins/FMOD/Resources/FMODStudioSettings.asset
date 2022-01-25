@@ -244,8 +244,8 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131588
-  HideSetupWizard: 0
-  LastEventReferenceScanVersion: 0
+  HideSetupWizard: 1
+  LastEventReferenceScanVersion: 131588
   Platforms:
   - {fileID: -6176398947094328576}
   - {fileID: -4193469058974679107}
@@ -358,8 +358,8 @@ MonoBehaviour:
       Value: 
       HasValue: 0
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 3
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0
