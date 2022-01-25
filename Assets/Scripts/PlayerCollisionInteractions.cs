@@ -6,14 +6,12 @@ public class PlayerCollisionInteractions : MonoBehaviour
     [SerializeField] private Collider2D coll;
 
     public UnityEvent eventDie;
-    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         // if it's a frontal collision and with a certain kind of object, die
-        var otherMaybeSpawnable = other.gameObject.GetComponent<Spawnable>();
-        var yOfContact = other.GetContact(0).point.y;
-        Debug.Log($"{name} - Collision at {other.GetContact(0).point.x.ToString()}," +
-                  $"{other.GetContact(0).point.y.ToString()}");
+        Spawnable otherMaybeSpawnable = other.gameObject.GetComponent<Spawnable>();
+        float yOfContact = other.GetContact(0).point.y;
         if (otherMaybeSpawnable != null
             && yOfContact >= coll.bounds.min.y
             && yOfContact <= coll.bounds.max.y)

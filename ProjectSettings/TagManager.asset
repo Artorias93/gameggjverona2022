@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Ground
   - Obstacles
-  - 
+  - Character
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 964622873
+    locked: 0
+  - name: Pickup
+    uniqueID: 693543915
     locked: 0
