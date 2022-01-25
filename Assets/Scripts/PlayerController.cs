@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     
     private float heightOfCenter;
     private int horizontalMovement;
-    
+
     // Start is called before the first frame update
     void Start()
     {

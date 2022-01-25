@@ -35,6 +35,14 @@ PrefabInstance:
       propertyPath: rightButton
       value: 108
       objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: usePickupButton
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: givePickupButton
+      value: 107
+      objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -105,3 +113,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+--- !u!1 &3995752806180454789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 465950979374074621, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+  m_PrefabInstance: {fileID: 3532132673356974968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1261940615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3995752806180454789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eac2ba151a3e234ba6a902ded66717f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  areInContactDistance: 1.5

@@ -178,25 +178,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4345658544470683439, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4345658544470683439, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 964622873
-      objectReference: {fileID: 0}
     - target: {fileID: 4345658544470683473, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
       propertyPath: m_Name
       value: BlackCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
-      propertyPath: usePickupButton
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
-      propertyPath: givePickupButton
-      value: 115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
@@ -218,14 +202,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &732352522
-AudioListener:
+--- !u!114 &732352522
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732352521}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!20 &732352523
 Camera:
   m_ObjectHideFlags: 0
@@ -293,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1151470580}
   - component: {fileID: 1151470579}
+  - component: {fileID: 1151470581}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -341,6 +332,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1151470581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151470578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b3c5abe5226d0498e4121036c71233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Jump
+    data:
+      eventString: event:/Player/Player_Jump
 --- !u!1 &1253029967
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,27 +478,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1261940608 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3995752806180454789, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
-  m_PrefabInstance: {fileID: 1819859556}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1261940615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261940608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eac2ba151a3e234ba6a902ded66717f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  areInContactDistance: 1.5
 --- !u!1 &1680269080
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,37 +603,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
-      propertyPath: usePickupButton
-      value: 111
-      objectReference: {fileID: 0}
-    - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
-      propertyPath: givePickupButton
-      value: 107
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
---- !u!1 &1876929185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4345658544470683473, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
-  m_PrefabInstance: {fileID: 206916640}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1876929192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876929185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eac2ba151a3e234ba6a902ded66717f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  areInContactDistance: 1.5
 --- !u!1 &2016327865
 GameObject:
   m_ObjectHideFlags: 0
