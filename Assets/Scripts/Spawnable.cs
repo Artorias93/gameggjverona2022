@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Spawnable : MonoBehaviour
 {
-    private void Awake()
+    //Commented because Start and Update get called even though they do nothing
+    /*private void Awake()
     {
         Assert.IsNotNull(GetComponent<Rigidbody2D>());
     }
@@ -21,5 +23,5 @@ public class Spawnable : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 }

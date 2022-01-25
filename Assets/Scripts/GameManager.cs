@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.queriesStartInColliders = false;
         UILayerIndex = LayerMask.NameToLayer("UI");
         
         aboveSpawningCoro = StartSpawning(true, aboveObstacles);

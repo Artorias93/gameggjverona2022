@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode leftButton;
     [SerializeField] private KeyCode downButton;
     [SerializeField] private KeyCode rightButton;
+    [SerializeField] public KeyCode usePickupButton;
+    [SerializeField] public KeyCode givePickupButton;
     [SerializeField] public float verticalJumpSpeed;
     [SerializeField] public float sideMovementSpeed;
     [SerializeField] private LayerMask groundLayerMask;
-    [SerializeField] private LayerMask obstacleLayerMask;
+    [SerializeField] public LayerMask obstacleLayerMask;
     
     private float heightOfCenter;
     private int horizontalMovement;
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // +1 if straight, -1 if upside down
-    private int UpsideDownSign()
+    public int UpsideDownSign()
     {
         return Math.Sign(rb.gravityScale);
     }
