@@ -152,6 +152,9 @@ MonoBehaviour:
   downButton: 115
   rightButton: 100
   verticalJumpSpeed: 7
+  jumpTime: 1
+  endedJumpEarlySpeed: 2
+  jumpAcceleration: 2
   sideMovementSpeed: 5
   groundLayerMask:
     serializedVersion: 2

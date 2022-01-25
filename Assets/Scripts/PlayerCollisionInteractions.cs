@@ -12,6 +12,8 @@ public class PlayerCollisionInteractions : MonoBehaviour
         // if it's a frontal collision and with a certain kind of object, die
         var otherMaybeSpawnable = other.gameObject.GetComponent<Spawnable>();
         var yOfContact = other.GetContact(0).point.y;
+        Debug.Log($"{name} - Collision at {other.GetContact(0).point.x.ToString()}," +
+                  $"{other.GetContact(0).point.y.ToString()}");
         if (otherMaybeSpawnable != null
             && yOfContact >= coll.bounds.min.y
             && yOfContact <= coll.bounds.max.y)

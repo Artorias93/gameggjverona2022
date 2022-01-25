@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode rightButton;
     [SerializeField] public float verticalJumpSpeed;
     [SerializeField] public float jumpTime; //maybe calculate it based on verticalJumpSpeed?
-    [SerializeField] public float endedJumpEarlySpeed = 250f;
+    [SerializeField] private float jumpAcceleration;
     [SerializeField] public float sideMovementSpeed;
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private LayerMask obstacleLayerMask;
@@ -22,11 +22,12 @@ public class PlayerController : MonoBehaviour
     private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         heightOfCenter = coll.bounds.extents.y;
+        jumpTimer = new Timer(jumpTime); // instantiate here just once, then just start and stop and reuse the same
     }
 
     // Update is called once per frame
@@ -35,13 +36,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(upButton)
             && isGrounded())
         {
+            // initial impulse
             rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
-            jumpTimer = new Timer(jumpTime);
             jumpTimer.Start();
         }
-        else if(Input.GetKeyUp(upButton) && !jumpTimer.HasExpired())
+        else if (Input.GetKeyUp(upButton))
         {
-            rb.AddForce(Vector2.down * UpsideDownSign() * endedJumpEarlySpeed); //this should be in FixedUpdate
+            jumpTimer.Reset();
         }
 
         if (Input.GetKey(rightButton) && !Input.GetKey(leftButton))
@@ -62,6 +63,12 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(
             horizontalMovement * sideMovementSpeed,
             rb.velocity.y);
+        
+        // if we are keeping the jump button down, boost me
+        if (jumpTimer.Started() && !jumpTimer.HasExpiredIfSoReset())
+        {
+            rb.AddForce(Vector2.up * UpsideDownSign() * jumpAcceleration, ForceMode2D.Force);
+        }
     }
 
     private bool isGrounded()
