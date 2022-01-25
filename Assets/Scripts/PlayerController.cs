@@ -6,21 +6,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Requirements")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Collider2D coll;
+    [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] public LayerMask obstacleLayerMask;
+    
+    [Header("Controls")]
     [SerializeField] private KeyCode upButton;
     [SerializeField] private KeyCode leftButton;
     [SerializeField] private KeyCode downButton;
     [SerializeField] private KeyCode rightButton;
     [SerializeField] public KeyCode usePickupButton;
     [SerializeField] public KeyCode givePickupButton;
+    
+    [Header("Jump")]
     [SerializeField] public float verticalJumpSpeed;
     [SerializeField] public float jumpTime; //maybe calculate it based on verticalJumpSpeed?
     [SerializeField] private float jumpAcceleration;
     [SerializeField] public float sideMovementSpeed;
-    [SerializeField] private LayerMask groundLayerMask;
-    [SerializeField] public LayerMask obstacleLayerMask;
     
+    [Header("Smash")]
+    [SerializeField] private bool canSmash;
+    [SerializeField] private float smashSpeed;
+
     private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
@@ -57,6 +66,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             horizontalMovement = 0;
+        }
+
+        if (canSmash && Input.GetKeyDown(downButton) && !isGrounded())
+        {
+            rb.velocity = new Vector2(
+                rb.velocity.x, 
+                rb.velocity.y - UpsideDownSign() * smashSpeed);
         }
     }
 

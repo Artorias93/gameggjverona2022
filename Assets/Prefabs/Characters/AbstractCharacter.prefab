@@ -147,6 +147,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 465950979374074620}
   coll: {fileID: 7883143431016938587}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   upButton: 119
   leftButton: 97
   downButton: 115
@@ -157,12 +163,8 @@ MonoBehaviour:
   jumpTime: 1
   jumpAcceleration: 2
   sideMovementSpeed: 5
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
+  canSmash: 0
+  smashSpeed: 7
 --- !u!114 &-4868856568179653815
 MonoBehaviour:
   m_ObjectHideFlags: 0
