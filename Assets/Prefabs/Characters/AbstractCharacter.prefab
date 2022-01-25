@@ -151,9 +151,10 @@ MonoBehaviour:
   leftButton: 97
   downButton: 115
   rightButton: 100
+  usePickupButton: 0
+  givePickupButton: 0
   verticalJumpSpeed: 7
   jumpTime: 1
-  endedJumpEarlySpeed: 2
   jumpAcceleration: 2
   sideMovementSpeed: 5
   groundLayerMask:
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 7883143431016938587}
+  player: {fileID: -1093229507546298313}
   eventDie:
     m_PersistentCalls:
       m_Calls:

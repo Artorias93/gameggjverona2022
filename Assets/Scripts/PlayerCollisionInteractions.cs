@@ -4,26 +4,19 @@ using UnityEngine.Events;
 public class PlayerCollisionInteractions : MonoBehaviour
 {
     [SerializeField] private Collider2D coll;
+    [SerializeField] private PlayerController player;
 
     public UnityEvent eventDie;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // if it's a frontal collision and with a certain kind of object, die
-        Spawnable otherMaybeSpawnable = other.gameObject.GetComponent<Spawnable>();
-        float yOfContact = other.GetContact(0).point.y;
+        Spawnable otherMaybeSpawnable = collision.gameObject.GetComponent<Spawnable>();
+        Vector3 normal = collision.GetContact(0).normal;
+        
         if (otherMaybeSpawnable != null
-            && yOfContact >= coll.bounds.min.y
-            && yOfContact <= coll.bounds.max.y)
+            && normal != transform.up * player.UpsideDownSign())
         {
-             eventDie?.Invoke();
-             
-             // stop the other so that it doesn't
-             // continue to be affected by physics
-             // and moves even if we are stopping
-             // the world for the game over
-             // other.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-             // other.gameObject.enable
+            eventDie?.Invoke();
         }
     }
 }
