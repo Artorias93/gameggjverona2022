@@ -4,10 +4,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities;
 
+
+
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Spawnable[] aboveObstacles;
-    [SerializeField] private Spawnable[] belowObstacles;
+    [System.Serializable]
+    public class SpawnableInfo
+    {
+        public Spawnable spawnable;
+        public float waitAtLeast;
+    }
+    
+    public SpawnableInfo[] aboveObstacles;
+    public SpawnableInfo[] belowObstacles;
     [SerializeField] private Transform spawningPointAbove;
     [SerializeField] private Transform spawningPointBelow;
     [SerializeField] private float minSpawnInterval;
@@ -39,18 +48,16 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator StartSpawning(bool above, Spawnable[] obstacles)
+    IEnumerator StartSpawning(bool above, SpawnableInfo[] spawnableInfos)
     {
         var rng = new System.Random();
+        // wait random initial time to de-sync obstacles
+        yield return new WaitForSeconds(Random.Range(0.0f, 1.5f));
         while (true)
         {
-            // wait random time
-            var waitFor = Random.Range(minSpawnInterval, maxSpawnInterval);
-            yield return new WaitForSeconds(waitFor);
-            
             // create new random obstacle that will start running
-            var idx = rng.Next(obstacles.Length);
-            var objToSpawn = obstacles[idx];
+            var idx = rng.Next(spawnableInfos.Length);
+            var objToSpawn = spawnableInfos[idx].spawnable;
             var obj = Instantiate(
                 objToSpawn,
                 above ? spawningPointAbove.position : spawningPointBelow.position,
@@ -65,6 +72,10 @@ public class GameManager : MonoBehaviour
             {
                 obj.GetComponent<Rigidbody2D>().gravityScale = -1;
             }
+            
+            // wait random time + minimum time required to wait after that obstacle
+            var waitFor = Random.Range(minSpawnInterval, maxSpawnInterval) + spawnableInfos[idx].waitAtLeast;
+            yield return new WaitForSeconds(waitFor);
         }
     }
 

@@ -308,10 +308,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aboveObstacles:
-  - {fileID: -739410115169827392, guid: d45f9a47782f3df4686504d39af67a87, type: 3}
-  - {fileID: 9028046101205526935, guid: 508e7ed78cd9fe04499abdd34d13ef68, type: 3}
+  - spawnable: {fileID: 9028046101205526935, guid: 508e7ed78cd9fe04499abdd34d13ef68, type: 3}
+    waitAtLeast: 2
   belowObstacles:
-  - {fileID: 4953714506924556011, guid: 59d4e72e067901140ae12fb6e00e12fa, type: 3}
+  - spawnable: {fileID: 9028046101205526935, guid: 8d1c1dba0c4bc0f46a17e5b10b15a20e, type: 3}
+    waitAtLeast: 2
   spawningPointAbove: {fileID: 2018130101}
   spawningPointBelow: {fileID: 1253029968}
   minSpawnInterval: 4
@@ -770,7 +771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2053772433
 MonoBehaviour:
@@ -875,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713756029015454144, guid: 1225360da0a4b65419ec5c5622bb95be, type: 3}
       propertyPath: m_LocalScale.x
-      value: 18.5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8713756029015454144, guid: 1225360da0a4b65419ec5c5622bb95be, type: 3}
       propertyPath: m_LocalScale.y

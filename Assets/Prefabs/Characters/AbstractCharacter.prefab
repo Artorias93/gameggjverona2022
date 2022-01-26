@@ -159,9 +159,9 @@ MonoBehaviour:
   rightButton: 100
   usePickupButton: 0
   givePickupButton: 0
-  verticalJumpSpeed: 7
-  jumpTime: 1
-  jumpAcceleration: 2
+  verticalJumpSpeed: 5
+  jumpTime: 0.5
+  jumpAcceleration: 8
   sideMovementSpeed: 5
   canSmash: 0
   smashSpeed: 7
