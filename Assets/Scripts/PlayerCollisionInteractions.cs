@@ -8,7 +8,7 @@ public class PlayerCollisionInteractions : MonoBehaviour
 
     public UnityEvent eventDie;
 
-<<<<<<< HEAD
+// HEAD
     void OnCollisionEnter2D(Collision2D col)
     {
         
