@@ -732,8 +732,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2053772432}
   - component: {fileID: 2053772431}
+  - component: {fileID: 2053772433}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: ScrollingBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +753,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 856c15e41aad6c141acee19bace03933, type: 3}
-  scrollingSpeed: 0
+  scrollingSpeed: 0.5
+  yOffset: 0.46
+  sortingLayer: Background
+  orderInLayer: 1
 --- !u!4 &2053772432
 Transform:
   m_ObjectHideFlags: 0
@@ -767,6 +771,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2053772433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053772430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a59145c395d1f14f981159a5f6953b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 5d1960099dd66f34cb0fd779933526ad, type: 3}
+  scrollingSpeed: 0.5
+  yOffset: 0.49
+  sortingLayer: Background
+  orderInLayer: 1
 --- !u!1001 &2011125619941356598
 PrefabInstance:
   m_ObjectHideFlags: 0
