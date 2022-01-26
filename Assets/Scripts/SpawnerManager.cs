@@ -1,12 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Utilities;
 
-
-
-public class GameManager : MonoBehaviour
+public class SpawnerManager : MonoBehaviour
 {
     [System.Serializable]
     public class SpawnableInfo
@@ -22,18 +17,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float minSpawnInterval;
     [SerializeField] private float maxSpawnInterval;
     [SerializeField] private float worldSpeed;
-    [SerializeField] private SceneField[] levels;
-    [SerializeField] private Text gameOverOverlay;
 
     private IEnumerator aboveSpawningCoro;
     private IEnumerator belowSpawningCoro;
-
+    
     private int UILayerIndex;
     
     // Start is called before the first frame update
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
+        
         UILayerIndex = LayerMask.NameToLayer("UI");
         
         aboveSpawningCoro = StartSpawning(true, aboveObstacles);
@@ -79,55 +73,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ReloadLevel0After2Sec()
+    public void OnPauseWorld()
     {
-        ReloadLevel(0, 2.0f);
-    }
-
-    void ReloadLevel(int levelIdx, float afterSeconds)
-    {
-        // stop updates of all objects in the scene
-        // excluding UI and this very object
-        // and stop spawning coroutines
-        PauseWorld();
-
-        // show game over overlay
-        gameOverOverlay.gameObject.SetActive(true);
-        
-        // wait and reload
-        StartCoroutine(
-            ReloadLevelCoro(
-                levelIdx, afterSeconds));
-    }
-
-    private void PauseWorld()
-    {
+        // Debug.Log($"{name} - on pause world");
         // stop all objects
         var allGameObjects = FindObjectsOfType<GameObject>();
         foreach (var go in allGameObjects)
         {
+            // BUG: how do we stop objects that are not using Update, but coroutines, like GameState?
             if (go != this.gameObject && go.layer != UILayerIndex)
             {
                 foreach (var c in go.GetComponents<MonoBehaviour>())
                 {
                     c.enabled = false;
                 }
+                foreach (var c in go.GetComponents<Rigidbody2D>())
+                {
+                    c.velocity = Vector2.zero;
+                    Destroy(c);
+                }
             }
         }
-        
+
         // stop spawning coroutines
         StopCoroutine(aboveSpawningCoro);
         StopCoroutine(belowSpawningCoro);
-    }
-
-    IEnumerator ReloadLevelCoro(int levelIdx, float afterSeconds)
-    {
-        yield return new WaitForSeconds(afterSeconds);
-        ReloadLevelImmediately(levelIdx);
-    }
-    
-    void ReloadLevelImmediately(int levelIdx)
-    {
-        SceneManager.LoadScene(levels[levelIdx]);
     }
 }
