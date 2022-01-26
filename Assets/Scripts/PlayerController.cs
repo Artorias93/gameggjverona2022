@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.Raycast(
-            transform.position,
+            new Vector2(coll.bounds.min.x, transform.position.y),
             - UpsideDownSign() * Vector2.up,
             heightOfCenter + 0.1f,
             groundLayerMask | obstacleLayerMask
