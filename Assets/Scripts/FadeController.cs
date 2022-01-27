@@ -9,20 +9,27 @@ public class FadeController : MonoBehaviour
     private bool mFaded = false;
     public float duration;
     public float waitingTime;
+    private CanvasGroup canvGroup;
+    private CanvasGroup canvGroup2;
+
 
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject level;
+    [SerializeField] private GameObject highscores;
     [SerializeField] private GameObject panel;
 
-    public void OnClickedStart()
+    public void OnClicked(Button button)
     {
-        var canvGroup = GetComponent<CanvasGroup>();
+        canvGroup = GetComponent<CanvasGroup>();
+        if (gameObject.name == "Highscores" && button.name.StartsWith("Level")) canvGroup = GameObject.Find("Scoring").GetComponent<FadeController>().menu.GetComponent<CanvasGroup>();
+        Debug.Log(canvGroup);
         canvGroup.blocksRaycasts = false;
         panel.GetComponent<Image>().raycastTarget = true;
         StartCoroutine(Lock((waitingTime + duration)*0.7f));
         StartCoroutine(DoFade(canvGroup, canvGroup.alpha, mFaded ? 1 : 0));
         mFaded = true;
-        StartCoroutine(Wait(waitingTime, mFaded));
+        StartCoroutine(Wait(waitingTime, mFaded, button));
         mFaded = false;
     }
 
@@ -38,12 +45,25 @@ public class FadeController : MonoBehaviour
         }
     }
 
-    public IEnumerator Wait(float waitingTime, bool mFaded)
+    public IEnumerator Wait(float waitingTime, bool mFaded, Button button)
     {
-        var canvGroup2 = menu.GetComponent<CanvasGroup>();
         yield return new WaitForSeconds(waitingTime);
+
+        if (button.name == "SelectLevel") canvGroup2 = level.GetComponent<CanvasGroup>();
+        else if (button.name == "Highscores") canvGroup2 = highscores.GetComponent<CanvasGroup>();
+        else if (button.name.StartsWith("Level"))
+        {
+            GameObject.Find("Scoring/Lv/Text").GetComponent<Text>().text = button.GetComponentInChildren<Text>().text;
+            GameObject.Find("Scoring/Deaths/Text").GetComponent<Text>().text = Random.Range(1, 30).ToString();
+            GameObject.Find("Scoring/TimeToComplete/Text").GetComponent<Text>().text = Random.Range(1, 10).ToString("00") + ":" + Random.Range(1, 60).ToString("00") + ":" + Random.Range(1, 100).ToString("00");
+            canvGroup2 = GameObject.Find("Scoring").GetComponent<FadeController>().menu.GetComponent<CanvasGroup>();
+        }
+        else canvGroup2 = menu.GetComponent<CanvasGroup>();
+
+        GameObject.Find("Scoring").GetComponent<CanvasGroup>().alpha = 0;
         canvGroup2.blocksRaycasts = true;
         StartCoroutine(DoFade(canvGroup2, canvGroup2.alpha, mFaded ? 1 : 0));
+
         yield return null;
     }
 
