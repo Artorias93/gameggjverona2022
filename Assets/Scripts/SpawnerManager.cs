@@ -44,8 +44,8 @@ public class SpawnerManager : MonoBehaviour
         while (true)
         {
             // create new random obstacle that will start running
-            var idx = rng.Next(spawnableInfos.Length);
-            var objToSpawn = spawnableInfos[idx].spawnable;
+            int idx = rng.Next(spawnableInfos.Length);
+            Spawnable objToSpawn = spawnableInfos[idx].spawnable;
             var obj = Instantiate(
                 objToSpawn,
                 above ? spawningPointAbove.position : spawningPointBelow.position,

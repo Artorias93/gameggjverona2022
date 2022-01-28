@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: verticalJumpSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: distanceBufferingThreshold
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
 --- !u!1 &612469451
@@ -959,14 +963,50 @@ MonoBehaviour:
   aboveObstacles:
   - spawnable: {fileID: 9028046101205526935, guid: 508e7ed78cd9fe04499abdd34d13ef68, type: 3}
     waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: d45f9a47782f3df4686504d39af67a87, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 1719a2bcaa891ff4ba4125d14d8c76cc, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 7a6c828fa4ef71d4b935ef9f00544c90, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 4ac83ca91b0a1044cb9505137eb1b52b, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: ee480beeef3005a43853cf8581c17083, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: 36673fde2cd78d44cbfe65d8570a1b78, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: 89eb26bd6c974ff4da9177456767c616, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 2b85ab8cb9f6bf14180eeeff5648b7a0, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 6cd342c6111c22344a21769bdf71af15, type: 3}
+    waitAtLeast: 2
   belowObstacles:
   - spawnable: {fileID: 9028046101205526935, guid: 8d1c1dba0c4bc0f46a17e5b10b15a20e, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: eca0c6a7c67badf429e4a4c3694ac74d, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 0b1c195688ede0a4d8ef71b3a598e561, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 0cf774e2cc8661b409cf8c6b83831b8a, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: 1d869a053d2305843a7f53f384f619fd, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: 5da4b30778f855b48afc5cf29b151216, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: 8d338baaff3b52442bf16f1d7268ecba, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: -739410115169827392, guid: 6d94a0b1908feb444aaeb293c4419e55, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: bfe9600f467847a45a1faad28e5da88c, type: 3}
+    waitAtLeast: 2
+  - spawnable: {fileID: 9028046101205526935, guid: a37cb1a7ecd52624490051c127e58403, type: 3}
     waitAtLeast: 2
   spawningPointAbove: {fileID: 2018130101}
   spawningPointBelow: {fileID: 1253029968}
   minSpawnInterval: 4
   maxSpawnInterval: 6
-  worldSpeed: 4
+  worldSpeed: 6
 --- !u!4 &1151470580
 Transform:
   m_ObjectHideFlags: 0
@@ -1921,6 +1961,10 @@ PrefabInstance:
     - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
       propertyPath: verticalJumpSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
+      propertyPath: distanceBufferingThreshold
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
