@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnerManager : MonoBehaviour
 {
     [System.Serializable]
-    public class SpawnableInfo
+    public struct SpawnableInfo
     {
         public Spawnable spawnable;
         public float waitAtLeast;
@@ -34,12 +34,6 @@ public class SpawnerManager : MonoBehaviour
         belowSpawningCoro = StartSpawning(false, belowObstacles);
         StartCoroutine(aboveSpawningCoro);
         StartCoroutine(belowSpawningCoro);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator StartSpawning(bool above, SpawnableInfo[] spawnableInfos)
