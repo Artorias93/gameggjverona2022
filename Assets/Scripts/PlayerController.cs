@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpTime; //maybe calculate it based on verticalJumpSpeed?
     [SerializeField] private float jumpAcceleration;
     [SerializeField] public float sideMovementSpeed;
+    [SerializeField] private float distanceBufferingThreshold = 1;
     
     [Header("Smash")]
     [SerializeField] private bool canSmash;
@@ -33,6 +34,14 @@ public class PlayerController : MonoBehaviour
     private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
+
+    /* jump buffer: if the player jumps just before landing (distanceBufferingThreshold),
+     * buffer the jump and make the character jump when isGrounded again
+     * so the controls doesn't feel like garbage
+     */
+    private bool jumpBuffer = false;
+
+    private float coyoteTimeOffset = .2f; //coyote time
     
     // Start is called before the first frame update
     void Start()
@@ -44,12 +53,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(upButton)
-            && isGrounded())
+        if(jumpBuffer && isGrounded())
         {
+            jumpBuffer = false;
             // initial impulse
             rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
             jumpTimer.Start();
+        }
+        else if (Input.GetKeyDown(upButton))
+        {
+            if(isGrounded())
+            {
+                // initial impulse
+                rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
+                jumpTimer.Start();
+            }
+            else if(CanBufferJump())
+            {
+                jumpBuffer = true;
+            }
         }
         else if (Input.GetKeyUp(upButton))
         {
@@ -92,9 +114,19 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.Raycast(
-            new Vector2(coll.bounds.min.x, transform.position.y),
-            - UpsideDownSign() * Vector2.up,
+            new Vector2(coll.bounds.min.x - coyoteTimeOffset, transform.position.y),
+            UpsideDownSign() * Vector2.down,
             heightOfCenter + 0.1f,
+            groundLayerMask | obstacleLayerMask
+        );
+    }
+
+    private bool CanBufferJump()
+    {
+        return Physics2D.Raycast(
+            new Vector2(coll.bounds.min.x, transform.position.y),
+            UpsideDownSign() * Vector2.down,
+            heightOfCenter + distanceBufferingThreshold,
             groundLayerMask | obstacleLayerMask
         );
     }
