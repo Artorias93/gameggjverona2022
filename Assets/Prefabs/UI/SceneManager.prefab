@@ -98,7 +98,7 @@ MonoBehaviour:
     sceneName: Scenes/Level1
   - sceneAsset: {fileID: 102900000, guid: bc486245500e581429e42ee8594c0fb8, type: 3}
     sceneName: Scenes/Level2
-  loadingDelay: 2
+  loadingDelay: 1
   fader: {fileID: 4311825450879739022}
-  fadeDuration: 1
+  fadeDuration: 0.5
   currentLevel: -1
