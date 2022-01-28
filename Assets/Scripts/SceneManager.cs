@@ -114,7 +114,7 @@ public class SceneManager : MonoBehaviour
         fader.enabled = true;
         for (var t = 0.0f; t < fadeDuration; t += Time.deltaTime / fadeDuration)
         {
-            fader.material.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, t));
+            fader.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, t));
             yield return null; // wait until the next frame
         }
         
@@ -128,11 +128,11 @@ public class SceneManager : MonoBehaviour
     IEnumerator FadeOut()
     {
         fader.enabled = true;
-        fader.material.color = new Color(0, 0, 0, 1);
+        fader.color = new Color(0, 0, 0, 1);
         // fade out
         for (var t = 0.0f; t < fadeDuration; t += Time.deltaTime / fadeDuration)
         {
-            fader.material.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, 1 - t));
+            fader.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, 1 - t));
             yield return null; // wait until the next frame
         }
 
