@@ -10,6 +10,7 @@ using Utilities;
 public class SceneManager : MonoBehaviour
 {
     [SerializeField] private SceneField[] nonLevelScenes;
+    [SerializeField] private SceneField pauseOverlayScene;
     [SerializeField] private SceneField[] levels;
     // [SerializeField] private Text gameOverOverlay;
     [SerializeField] private float loadingDelay;
@@ -20,6 +21,7 @@ public class SceneManager : MonoBehaviour
 
     [SerializeField] private int currentLevel;
 
+    private bool paused = false;
     // private static SceneManager instance;
 
     private void Awake()
@@ -150,4 +152,40 @@ public class SceneManager : MonoBehaviour
     //     UnityEngine.SceneManagement.SceneManager.LoadScene(levels[levelIdx]);
     // }
     
+    public void PauseWorld()
+    {
+        paused = true;
+        Time.timeScale = 0;
+    }
+
+    public void UnpauseGame()
+    {
+        paused = false;
+        Time.timeScale = 1;
+    }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!paused){
+                PauseWorld();
+                UnityEngine.SceneManagement.SceneManager.LoadScene(pauseOverlayScene, LoadSceneMode.Additive);
+            } 
+            else
+            {
+                StartCoroutine(ResumeGame());
+            }
+        }
+    }
+
+    IEnumerator ResumeGame()
+    {
+        AsyncOperation asyncUnload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(pauseOverlayScene.SceneName);
+        while (!asyncUnload.isDone)
+        {
+            yield return null;
+        }
+        UnpauseGame();
+    }
 }
