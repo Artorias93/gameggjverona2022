@@ -777,7 +777,7 @@ RectTransform:
   m_GameObject: {fileID: 980191604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05, y: 2.5, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.2, z: 1}
   m_Children:
   - {fileID: 1006200029}
   - {fileID: 1946648084}
@@ -1004,8 +1004,8 @@ MonoBehaviour:
     waitAtLeast: 2
   spawningPointAbove: {fileID: 2018130101}
   spawningPointBelow: {fileID: 1253029968}
-  minSpawnInterval: 4
-  maxSpawnInterval: 6
+  minSpawnInterval: 5
+  maxSpawnInterval: 8
   worldSpeed: 6
 --- !u!4 &1151470580
 Transform:
@@ -1537,7 +1537,7 @@ RectTransform:
   m_GameObject: {fileID: 1497178007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05, y: 2.5, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.2, z: 1}
   m_Children:
   - {fileID: 1361098755}
   - {fileID: 865835276}

@@ -29,22 +29,24 @@ public class SpawnerManager : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         
         UILayerIndex = LayerMask.NameToLayer("UI");
-        
-        aboveSpawningCoro = StartSpawning(true, aboveObstacles);
-        belowSpawningCoro = StartSpawning(false, belowObstacles);
+
+        bool startBefore = Random.Range(0f, 1f) > .5f ? true : false; //random bool
+        aboveSpawningCoro = StartSpawning(true, aboveObstacles, startBefore);
+        belowSpawningCoro = StartSpawning(false, belowObstacles, !startBefore);
         StartCoroutine(aboveSpawningCoro);
         StartCoroutine(belowSpawningCoro);
     }
 
-    IEnumerator StartSpawning(bool above, SpawnableInfo[] spawnableInfos)
+    IEnumerator StartSpawning(bool above, SpawnableInfo[] spawnableInfos, bool startBefore)
     {
-        var rng = new System.Random();
         // wait random initial time to de-sync obstacles
-        yield return new WaitForSeconds(Random.Range(0.0f, 1.5f));
+        if(!startBefore)
+            yield return new WaitForSeconds(Random.Range(2f, 3f));
+
         while (true)
         {
             // create new random obstacle that will start running
-            int idx = rng.Next(spawnableInfos.Length);
+            int idx = Random.Range(0, spawnableInfos.Length);
             Spawnable objToSpawn = spawnableInfos[idx].spawnable;
             var obj = Instantiate(
                 objToSpawn,

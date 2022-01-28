@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
      * so the controls doesn't feel like garbage
      */
     private bool jumpBuffer = false;
+
+    private float coyoteTimeOffset = .2f; //coyote time
     
     // Start is called before the first frame update
     void Start()
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.Raycast(
-            new Vector2(coll.bounds.min.x, transform.position.y),
+            new Vector2(coll.bounds.min.x - coyoteTimeOffset, transform.position.y),
             UpsideDownSign() * Vector2.down,
             heightOfCenter + 0.1f,
             groundLayerMask | obstacleLayerMask
