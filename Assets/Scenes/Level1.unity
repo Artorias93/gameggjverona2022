@@ -1007,11 +1007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aboveObstacles:
-<<<<<<< HEAD
-  - spawnable: {fileID: 9028046101205526935, guid: a889956e020fa3843987dd21a8c8a900, type: 3}
-    waitAtLeast: 2
-  belowObstacles: []
-=======
   - spawnable: {fileID: 9028046101205526935, guid: 508e7ed78cd9fe04499abdd34d13ef68, type: 3}
     waitAtLeast: 2
   - spawnable: {fileID: -739410115169827392, guid: d45f9a47782f3df4686504d39af67a87, type: 3}
@@ -1053,7 +1048,6 @@ MonoBehaviour:
     waitAtLeast: 2
   - spawnable: {fileID: 9028046101205526935, guid: a37cb1a7ecd52624490051c127e58403, type: 3}
     waitAtLeast: 2
->>>>>>> 8d12312d77af7992b4aad691c08332392457527a
   spawningPointAbove: {fileID: 2018130101}
   spawningPointBelow: {fileID: 1253029968}
   minSpawnInterval: 5
