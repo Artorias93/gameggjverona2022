@@ -753,11 +753,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aboveObstacles:
-  - spawnable: {fileID: 9028046101205526935, guid: 508e7ed78cd9fe04499abdd34d13ef68, type: 3}
+  - spawnable: {fileID: 9028046101205526935, guid: a889956e020fa3843987dd21a8c8a900, type: 3}
     waitAtLeast: 2
-  belowObstacles:
-  - spawnable: {fileID: 9028046101205526935, guid: 8d1c1dba0c4bc0f46a17e5b10b15a20e, type: 3}
-    waitAtLeast: 2
+  belowObstacles: []
   spawningPointAbove: {fileID: 2018130101}
   spawningPointBelow: {fileID: 1253029968}
   minSpawnInterval: 4
@@ -951,7 +949,7 @@ RectTransform:
   - {fileID: 980191605}
   - {fileID: 1497178010}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1870,7 +1868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140711865662327972, guid: 3e677aba9bf0a22458d91a0a5616d715, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9140711865662327972, guid: 3e677aba9bf0a22458d91a0a5616d715, type: 3}
       propertyPath: m_LocalPosition.x

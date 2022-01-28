@@ -10,13 +10,13 @@ public class ConstantVelocity2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = velocity;
+        transform.position = transform.position + (Vector3.right * velocity.x) * Time.deltaTime;
     }
 
     public ConstantVelocity2D setVelocity(Vector2 vel)
