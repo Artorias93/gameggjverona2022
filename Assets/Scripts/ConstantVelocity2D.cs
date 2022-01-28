@@ -16,7 +16,7 @@ public class ConstantVelocity2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = velocity;
+        transform.position = transform.position + (Vector3.right * velocity.x) * Time.deltaTime;
     }
 
     public ConstantVelocity2D setVelocity(Vector2 vel)

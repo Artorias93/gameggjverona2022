@@ -27,7 +27,7 @@ public class SpawnerManager : MonoBehaviour
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
-        
+
         UILayerIndex = LayerMask.NameToLayer("UI");
 
         bool startBefore = Random.Range(0f, 1f) > .5f ? true : false; //random bool
