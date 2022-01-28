@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canSmash;
     [SerializeField] private float smashSpeed;
 
-    private float heightOfCenter;
+    // private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
 
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        heightOfCenter = coll.bounds.extents.y;
+        // heightOfCenter = coll.bounds.extents.y;
         jumpTimer = new Timer(jumpTime); // instantiate here just once, then just start and stop and reuse the same
     }
 
@@ -114,9 +114,10 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.Raycast(
-            new Vector2(coll.bounds.min.x - coyoteTimeOffset, transform.position.y),
+            // new Vector2(coll.bounds.min.x - coyoteTimeOffset, transform.position.y),
+            new Vector2(coll.bounds.min.x - coyoteTimeOffset, UpsideDownSign() > 0 ? coll.bounds.min.y : coll.bounds.max.y),
             UpsideDownSign() * Vector2.down,
-            heightOfCenter + 0.1f,
+              coyoteTimeOffset + 0.1f,
             groundLayerMask | obstacleLayerMask
         );
     }
@@ -124,9 +125,11 @@ public class PlayerController : MonoBehaviour
     private bool CanBufferJump()
     {
         return Physics2D.Raycast(
-            new Vector2(coll.bounds.min.x, transform.position.y),
+            // new Vector2(coll.bounds.min.x, transform.position.y),
+            new Vector2(coll.bounds.min.x, UpsideDownSign() > 0 ? coll.bounds.min.y : coll.bounds.max.y),
             UpsideDownSign() * Vector2.down,
-            heightOfCenter + distanceBufferingThreshold,
+            // heightOfCenter + distanceBufferingThreshold,
+            distanceBufferingThreshold,
             groundLayerMask | obstacleLayerMask
         );
     }
