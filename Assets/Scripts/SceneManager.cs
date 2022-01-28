@@ -16,6 +16,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private float loadingDelay;
     [SerializeField] private Image fader;
     [SerializeField] private float fadeDuration;
+    [SerializeField] private Animator pauseOverlayAnim;
     
     // public UnityEvent gameOver;
 
@@ -156,12 +157,14 @@ public class SceneManager : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0;
+        pauseOverlayAnim.SetBool("Fade", true);
     }
 
     public void UnpauseGame()
     {
-        paused = false;
+        pauseOverlayAnim.SetBool("Fade", false);
         Time.timeScale = 1;
+        paused = false;
     }
     
     void Update()
@@ -170,11 +173,13 @@ public class SceneManager : MonoBehaviour
         {
             if(!paused){
                 PauseWorld();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(pauseOverlayScene, LoadSceneMode.Additive);
+                // UnityEngine.SceneManagement.SceneManager.LoadScene(pauseOverlayScene, LoadSceneMode.Additive);
             } 
             else
             {
-                StartCoroutine(ResumeGame());
+                UnpauseGame();
+                
+                // StartCoroutine(ResumeGame());
             }
         }
     }
