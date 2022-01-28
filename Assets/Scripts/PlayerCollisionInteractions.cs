@@ -7,7 +7,7 @@ public class PlayerCollisionInteractions : MonoBehaviour
     [SerializeField] private PlayerController player;
 
     [Header("No Collision Near Vertex")] 
-    [SerializeField] private Transform noCollisionVertex;
+    [SerializeField] private Transform[] noCollisionVertexes;
     [SerializeField] private float radiusNoCollision = 0.1f;
     
     public UnityEvent eventDie;
@@ -70,7 +70,12 @@ public class PlayerCollisionInteractions : MonoBehaviour
 
     private bool IsCloseToNoCollisionVertex(Vector2 point)
     {
-        return (new Vector3(point.x, point.y, 0) - noCollisionVertex.position).sqrMagnitude <
-            radiusNoCollision * radiusNoCollision;
+        foreach(var vertex in noCollisionVertexes)
+        {
+            if ((new Vector3(point.x, point.y, 0) - vertex.position).sqrMagnitude <
+                radiusNoCollision * radiusNoCollision)
+                return true;
+        }
+        return false;
     }
 }
