@@ -6,6 +6,10 @@ public class PlayerCollisionInteractions : MonoBehaviour
     [SerializeField] private Collider2D coll;
     [SerializeField] private PlayerController player;
 
+    [Header("No Collision Near Vertex")] 
+    [SerializeField] private Transform[] noCollisionVertexes;
+    [SerializeField] private float radiusNoCollision = 0.1f;
+    
     public UnityEvent eventDie;
 
     // void OnCollisionEnter2D(Collision2D col)
@@ -57,9 +61,21 @@ public class PlayerCollisionInteractions : MonoBehaviour
         Vector3 normal = collision.GetContact(0).normal;
         
         if (otherMaybeSpawnable != null
-            && normal != transform.up * player.UpsideDownSign())
+            && normal != transform.up * player.UpsideDownSign()
+            && !IsCloseToNoCollisionVertex(collision.GetContact(0).point))
         {
             eventDie?.Invoke();
         }
+    }
+
+    private bool IsCloseToNoCollisionVertex(Vector2 point)
+    {
+        foreach(var vertex in noCollisionVertexes)
+        {
+            if ((new Vector3(point.x, point.y, 0) - vertex.position).sqrMagnitude <
+                radiusNoCollision * radiusNoCollision)
+                return true;
+        }
+        return false;
     }
 }

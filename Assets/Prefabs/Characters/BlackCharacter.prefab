@@ -8,6 +8,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4868856568179653815, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: noCollisionVertexes.Array.data[0]
+      value: 
+      objectReference: {fileID: 7321718445152800797}
+    - target: {fileID: -4868856568179653815, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: noCollisionVertexes.Array.data[1]
+      value: 
+      objectReference: {fileID: 628661340498463467}
+    - target: {fileID: -4868856568179653815, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: eventDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReloadLevel0After2Sec
       objectReference: {fileID: 0}
@@ -100,6 +108,16 @@ PrefabInstance:
 --- !u!1 &4345658544470683473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 465950979374074621, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+  m_PrefabInstance: {fileID: 4195528144901809580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7321718445152800797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891205329024234929, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+  m_PrefabInstance: {fileID: 4195528144901809580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &628661340498463467 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3639179764728082247, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
   m_PrefabInstance: {fileID: 4195528144901809580}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1876929192
