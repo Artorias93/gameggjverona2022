@@ -23,8 +23,8 @@ public class PickupController : MonoBehaviour
         //this could be a problem when animating GivePickup
         //maybe due to direct rb.velocity assignment in playercontroller instead of AddForce?
         //TODO: check this
-        if (currentPickupObject)
-            currentPickupObject.transform.position = transform.position;
+
+        
 
         if (currentPickup != null)
         {
@@ -42,6 +42,12 @@ public class PickupController : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (currentPickupObject)
+            currentPickupObject.transform.localPosition = Vector3.zero;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Pickup pickup = collision.GetComponent<Pickup>();
@@ -52,7 +58,6 @@ public class PickupController : MonoBehaviour
 
             collision.transform.parent = this.transform;
             collision.transform.position = transform.position;
-
             AudioManager.Play(playerController.pickupSoundEvent);
         }
     }
