@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7aa60d90af315458266a9be220d949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: -5, y: 0}
+  speed: {x: -2, y: 0}
   infiniteHorizontal: 1
   minSpawnDistance: 0
   maxSpawnDistance: 10
@@ -229,6 +229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1876929192, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: pickupSoundEvent
+      value: Player_Ian_Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 457073723230758629, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
       propertyPath: eventDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -324,6 +328,18 @@ PrefabInstance:
     - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
       propertyPath: canSmash
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: jumpSoundEvent
+      value: Player_Ian_Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: deathSoundEvent
+      value: Player_Ian_Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: pickupSoundEvent
+      value: Player_Ian_Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
       propertyPath: verticalJumpSpeed
@@ -1227,9 +1243,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Jump
+  - name: Player_Ian_Death
     data:
-      eventString: event:/Player/Player_Jump
+      eventString: event:/Player/Player_Ian_Death
+  - name: Player_Ian_Jump
+    data:
+      eventString: event:/Player/Player_Ian_Jump
+  - name: Player_Ian_Pickup
+    data:
+      eventString: event:/Player/Player_Ian_Pickup
+  - name: Player_Nai_Death
+    data:
+      eventString: event:/Player/Player_Nai_Death
+  - name: Player_Nai_Jump
+    data:
+      eventString: event:/Player/Player_Nai_Jump
+  - name: Player_Nai_Pickup
+    data:
+      eventString: event:/Player/Player_Nai_Pickup
+  - name: UI_Click
+    data:
+      eventString: event:/UI/UI_Click
+  - name: Music
+    data:
+      eventString: event:/Music/Music
 --- !u!114 &1151470582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,7 +1920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7aa60d90af315458266a9be220d949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: -5, y: 0}
+  speed: {x: -2, y: 0}
   infiniteHorizontal: 1
   minSpawnDistance: 0
   maxSpawnDistance: 10
@@ -2124,6 +2161,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261940615, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
+      propertyPath: pickupSoundEvent
+      value: Player_Nai_Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 966865774351042609, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
       propertyPath: eventDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2191,6 +2232,18 @@ PrefabInstance:
     - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
       propertyPath: canSmash
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
+      propertyPath: jumpSoundEvent
+      value: Player_Nai_Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
+      propertyPath: deathSoundEvent
+      value: Player_Nai_Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
+      propertyPath: pickupSoundEvent
+      value: Player_Nai_Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
       propertyPath: verticalJumpSpeed
