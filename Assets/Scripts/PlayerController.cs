@@ -25,31 +25,53 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpTime; //maybe calculate it based on verticalJumpSpeed?
     [SerializeField] private float jumpAcceleration;
     [SerializeField] public float sideMovementSpeed;
+    [SerializeField] private float distanceBufferingThreshold = 1;
     
     [Header("Smash")]
     [SerializeField] private bool canSmash;
     [SerializeField] private float smashSpeed;
 
-    private float heightOfCenter;
+    // private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
+
+    /* jump buffer: if the player jumps just before landing (distanceBufferingThreshold),
+     * buffer the jump and make the character jump when isGrounded again
+     * so the controls doesn't feel like garbage
+     */
+    private bool jumpBuffer = false;
+
+    private float coyoteTimeOffset = .2f; //coyote time
     
     // Start is called before the first frame update
     void Start()
     {
-        heightOfCenter = coll.bounds.extents.y;
+        // heightOfCenter = coll.bounds.extents.y;
         jumpTimer = new Timer(jumpTime); // instantiate here just once, then just start and stop and reuse the same
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(upButton)
-            && isGrounded())
+        if(jumpBuffer && isGrounded())
         {
+            jumpBuffer = false;
             // initial impulse
             rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
             jumpTimer.Start();
+        }
+        else if (Input.GetKeyDown(upButton))
+        {
+            if(isGrounded())
+            {
+                // initial impulse
+                rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
+                jumpTimer.Start();
+            }
+            else if(CanBufferJump())
+            {
+                jumpBuffer = true;
+            }
         }
         else if (Input.GetKeyUp(upButton))
         {
@@ -92,9 +114,22 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.Raycast(
-            transform.position,
-            - UpsideDownSign() * Vector2.up,
-            heightOfCenter + 0.1f,
+            // new Vector2(coll.bounds.min.x - coyoteTimeOffset, transform.position.y),
+            new Vector2(coll.bounds.min.x - coyoteTimeOffset, UpsideDownSign() > 0 ? coll.bounds.min.y : coll.bounds.max.y),
+            UpsideDownSign() * Vector2.down,
+              coyoteTimeOffset + 0.1f,
+            groundLayerMask | obstacleLayerMask
+        );
+    }
+
+    private bool CanBufferJump()
+    {
+        return Physics2D.Raycast(
+            // new Vector2(coll.bounds.min.x, transform.position.y),
+            new Vector2(coll.bounds.min.x, UpsideDownSign() > 0 ? coll.bounds.min.y : coll.bounds.max.y),
+            UpsideDownSign() * Vector2.down,
+            // heightOfCenter + distanceBufferingThreshold,
+            distanceBufferingThreshold,
             groundLayerMask | obstacleLayerMask
         );
     }
