@@ -1072,11 +1072,17 @@ MonoBehaviour:
   nonLevelScenes:
   - sceneAsset: {fileID: 102900000, guid: 237ae90a8dc45d44086bd493a7645f5d, type: 3}
     sceneName: Scenes/MainMenu
+  - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
+    sceneName: Scenes/Level1
   levels:
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
-  - sceneAsset: {fileID: 102900000, guid: bc486245500e581429e42ee8594c0fb8, type: 3}
-    sceneName: Scenes/Level2
+  - sceneAsset: {fileID: 102900000, guid: 4a4206989f656d242a8e6b75e4f257ae, type: 3}
+    sceneName: Scenes/Level1Static
+  - sceneAsset: {fileID: 102900000, guid: cb451f494b3f0e145bde282dff7c8a7a, type: 3}
+    sceneName: Scenes/Level2Static
+  - sceneAsset: {fileID: 102900000, guid: aa8d191af62f1ff44b7cbbd99b1f03f3, type: 3}
+    sceneName: Scenes/Level3Static
   loadingDelay: 0
   fader: {fileID: 4545383628053972750}
   fadeDuration: 1

@@ -32,6 +32,18 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: canSmash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: jumpSoundEvent
+      value: Player_Ian_Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: deathSoundEvent
+      value: Player_Ian_Death
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: usePickupButton
       value: 101
       objectReference: {fileID: 0}
@@ -39,17 +51,37 @@ PrefabInstance:
       propertyPath: givePickupButton
       value: 115
       objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: pickupSoundEvent
+      value: Player_Ian_Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: verticalJumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1093229507546298313, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: distanceBufferingThreshold
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.25
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -84,6 +116,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8708002033623819516, guid: 7b4c6911d004c66439e8f01e23105536, type: 3}
+    - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Color.b
       value: 0.2264151
       objectReference: {fileID: 0}
@@ -97,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074620, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074621, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Name
@@ -106,6 +142,30 @@ PrefabInstance:
     - target: {fileID: 465950979374074621, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0326452
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.936929
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.046004772
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1008414
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
