@@ -66,4 +66,13 @@ public class AudioManager : MonoBehaviour
             
         eventInstance.start();
     }
+
+
+    /* To change game music from menu to level: 
+        AudioManager.SetParameterByName("Music", "GAME STATE", 1);
+    */
+    public static void SetParameterByName(string soundName, string parameterName, float value)
+    {
+        instance.soundsDict[soundName].eventInstance.setParameterByName(parameterName, value);
+    }
 }
