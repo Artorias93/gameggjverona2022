@@ -86,7 +86,8 @@ public class FadeController : MonoBehaviour
 
     public void Exit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
 }
