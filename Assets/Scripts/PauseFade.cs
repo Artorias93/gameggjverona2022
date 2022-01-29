@@ -11,9 +11,16 @@ public class PauseFade : MonoBehaviour
         anim.SetBool("Fade", true);
     }
 
+    public void GameOver()
+    {
+        anim.SetBool("GameOver", true);
+    }
+
     public void Resume()
     {
         anim.SetBool("Fade", false);
+        
+        anim.SetBool("GameOver", false);
     }
 
 }
