@@ -19,6 +19,11 @@ public class FadeController : MonoBehaviour
     [SerializeField] private GameObject highscores;
     [SerializeField] private GameObject panel;
 
+    private void Start()
+    {
+        AudioManager.Play("Music");
+    }
+
     public void OnClicked(Button button)
     {
         canvGroup = GetComponent<CanvasGroup>();
@@ -26,6 +31,7 @@ public class FadeController : MonoBehaviour
         Debug.Log(canvGroup);
         canvGroup.blocksRaycasts = false;
         panel.GetComponent<Image>().raycastTarget = true;
+        AudioManager.Play("Click");
         StartCoroutine(Lock((waitingTime + duration)*0.7f));
         StartCoroutine(DoFade(canvGroup, canvGroup.alpha, mFaded ? 1 : 0));
         mFaded = true;
