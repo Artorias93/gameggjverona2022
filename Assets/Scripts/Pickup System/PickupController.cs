@@ -52,6 +52,8 @@ public class PickupController : MonoBehaviour
 
             collision.transform.parent = this.transform;
             collision.transform.position = transform.position;
+
+            AudioManager.Play(playerController.pickupSoundEvent);
         }
     }
 

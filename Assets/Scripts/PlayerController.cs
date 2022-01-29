@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canSmash;
     [SerializeField] private float smashSpeed;
 
+    [Header("Sound")]
+    [SerializeField] public string deathSoundEvent;
+    [SerializeField] public string jumpSoundEvent;
+    [SerializeField] public string pickupSoundEvent;
+
     // private float heightOfCenter;
     private int horizontalMovement;
     private Timer jumpTimer;
@@ -59,6 +64,7 @@ public class PlayerController : MonoBehaviour
             // initial impulse
             rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
             jumpTimer.Start();
+            AudioManager.Play(jumpSoundEvent);
         }
         else if (Input.GetKeyDown(upButton))
         {
@@ -67,6 +73,7 @@ public class PlayerController : MonoBehaviour
                 // initial impulse
                 rb.velocity = new Vector2(rb.velocity.x, UpsideDownSign() * verticalJumpSpeed);
                 jumpTimer.Start();
+                AudioManager.Play(jumpSoundEvent);
             }
             else if(CanBufferJump())
             {
