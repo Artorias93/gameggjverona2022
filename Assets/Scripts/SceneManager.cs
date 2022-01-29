@@ -226,6 +226,9 @@ public class SceneManager : MonoBehaviour
     
     public void GameOver()
     {
+        paused = true;
+        Time.timeScale = 0;
+        
         pauseOverlayAnim.SetBool("GameOver", true);
     }
     
