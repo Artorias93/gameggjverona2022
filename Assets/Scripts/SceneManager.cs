@@ -6,17 +6,19 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities;
+using Object = UnityEngine.Object;
 
 public class SceneManager : MonoBehaviour
 {
     [SerializeField] private SceneField[] nonLevelScenes;
-    [SerializeField] private SceneField pauseOverlayScene;
+    // [SerializeField] private SceneField pauseOverlayScene;
     [SerializeField] private SceneField[] levels;
     // [SerializeField] private Text gameOverOverlay;
     [SerializeField] private float loadingDelay;
     [SerializeField] private Image fader;
     [SerializeField] private float fadeDuration;
     [SerializeField] private Animator pauseOverlayAnim;
+    [SerializeField] private Animator resumeButtonAnim;
     
     // public UnityEvent gameOver;
 
@@ -41,6 +43,8 @@ public class SceneManager : MonoBehaviour
 
     private void Start()
     {
+        UnpauseGame(); // call this in case we transitioned after pausing
+        pauseOverlayAnim.SetBool("GameOver", false); // in case we transitioned from gameOver
         StartCoroutine(FadeOut());
     }
 
@@ -51,22 +55,40 @@ public class SceneManager : MonoBehaviour
 
     public void LoadScene(SceneField scene)
     {
+        pauseOverlayAnim.SetBool("Fade", false);
         StartCoroutine(LoadSceneAfterCoro(scene, loadingDelay));
+    }
+
+    public void LoadScene(Scene scene)
+    {
+        pauseOverlayAnim.SetBool("Fade", false);
+        StartCoroutine(LoadSceneAfterCoro(scene, loadingDelay));
+    }
+    
+    public void ReloadScene()
+    {
+        // Debug.Log("Reloading scene");
+        // UnpauseGame();
+        pauseOverlayAnim.SetBool("Fade", false);
+        LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
     }
 
     public void LoadNonLevelScene(int sceneIdx)
     {
+        pauseOverlayAnim.SetBool("Fade", false);
         StartCoroutine(LoadSceneAfterCoro(nonLevelScenes[sceneIdx], loadingDelay));
     }
 
     public void LoadLevel(int levelIdx)
     {
+        pauseOverlayAnim.SetBool("Fade", false);
         StartCoroutine(LoadSceneAfterCoro(levels[levelIdx], loadingDelay));
         currentLevel = levelIdx;
     }
 
     public void LoadNextLevel()
     {
+        pauseOverlayAnim.SetBool("Fade", false);
         StartCoroutine(LoadSceneAfterCoro(levels[currentLevel++], loadingDelay));
     }
     
@@ -115,14 +137,35 @@ public class SceneManager : MonoBehaviour
         // fade in
         // var fader = Instantiate(faderPrefab, Vector3.zero, quaternion.identity);
         fader.enabled = true;
-        for (var t = 0.0f; t < fadeDuration; t += Time.deltaTime / fadeDuration)
+        for (var t = 0.0f; t < fadeDuration; t += Time.unscaledDeltaTime / fadeDuration)
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, t));
             yield return null; // wait until the next frame
         }
         
         // load with artificial wait
-        yield return new WaitForSeconds(afterSeconds); // artificial wait
+        yield return new WaitForSecondsRealtime(afterSeconds); // artificial wait
+        LoadSceneImmediately(scene);
+        
+        
+    }
+    
+    IEnumerator LoadSceneAfterCoro(Scene scene, float afterSeconds)
+    {
+        // fade in
+        // var fader = Instantiate(faderPrefab, Vector3.zero, quaternion.identity);
+        // Debug.Log($"{name} - Fading in");
+        fader.enabled = true;
+        for (var t = 0.0f; t < fadeDuration; t += Time.unscaledDeltaTime / fadeDuration)
+        {
+            fader.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, t));
+            yield return null; // wait until the next frame
+        }
+        
+        // Debug.Log($"{name} - artificial wait");
+        // load with artificial wait
+        yield return new WaitForSecondsRealtime(afterSeconds); // artificial wait
+        // Debug.Log($"{name} - load scene immediately");
         LoadSceneImmediately(scene);
         
         
@@ -133,7 +176,7 @@ public class SceneManager : MonoBehaviour
         fader.enabled = true;
         fader.color = new Color(0, 0, 0, 1);
         // fade out
-        for (var t = 0.0f; t < fadeDuration; t += Time.deltaTime / fadeDuration)
+        for (var t = 0.0f; t < fadeDuration; t += Time.unscaledDeltaTime / fadeDuration)
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, 1 - t));
             yield return null; // wait until the next frame
@@ -148,6 +191,10 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene.SceneName);
     }
     
+    void LoadSceneImmediately(Scene scene)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene.name);
+    }
     // void LoadLevelImmediately(int levelIdx)
     // {
     //     UnityEngine.SceneManagement.SceneManager.LoadScene(levels[levelIdx]);
@@ -156,8 +203,19 @@ public class SceneManager : MonoBehaviour
     public void PauseWorld()
     {
         paused = true;
+        
+        // we need to set this here because by setting the time scale to 0 
+        // the button's animators won't go back to Normal otherwise
+        resumeButtonAnim.SetTrigger("Normal");
+        
         Time.timeScale = 0;
         pauseOverlayAnim.SetBool("Fade", true);
+
+        // if (button != null)
+        // {
+        //     button.animator.se
+        // }
+        // pauseOverlayAnim.SetTrigger();
     }
 
     public void UnpauseGame()
@@ -165,6 +223,11 @@ public class SceneManager : MonoBehaviour
         pauseOverlayAnim.SetBool("Fade", false);
         Time.timeScale = 1;
         paused = false;
+    }
+    
+    public void GameOver()
+    {
+        pauseOverlayAnim.SetBool("GameOver", true);
     }
     
     void Update()
@@ -178,19 +241,18 @@ public class SceneManager : MonoBehaviour
             else
             {
                 UnpauseGame();
-                
                 // StartCoroutine(ResumeGame());
             }
         }
     }
 
-    IEnumerator ResumeGame()
-    {
-        AsyncOperation asyncUnload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(pauseOverlayScene.SceneName);
-        while (!asyncUnload.isDone)
-        {
-            yield return null;
-        }
-        UnpauseGame();
-    }
+    // IEnumerator ResumeGame()
+    // {
+    //     AsyncOperation asyncUnload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(pauseOverlayScene.SceneName);
+    //     while (!asyncUnload.isDone)
+    //     {
+    //         yield return null;
+    //     }
+    //     UnpauseGame();
+    // }
 }

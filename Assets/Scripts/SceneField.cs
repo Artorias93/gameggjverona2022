@@ -1,6 +1,7 @@
 using System;
  using UnityEngine;
- using Object = UnityEngine.Object;
+using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
  #if UNITY_EDITOR
  using UnityEditor;
  #endif
@@ -10,9 +11,10 @@ using System;
      [System.Serializable]
      public class SceneField
      {
-         [SerializeField] private Object sceneAsset;
+         [SerializeField] public Object sceneAsset;
          [SerializeField] private string sceneName = "";
- 
+
+         
          public string SceneName
          {
              get { return sceneName; }
