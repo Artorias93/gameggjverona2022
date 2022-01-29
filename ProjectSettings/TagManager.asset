@@ -57,3 +57,6 @@ TagManager:
   - name: Line
     uniqueID: 593285095
     locked: 0
+  - name: PauseOverlay
+    uniqueID: 2381600909
+    locked: 0
