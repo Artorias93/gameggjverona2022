@@ -15,6 +15,7 @@ public class DieZone : MonoBehaviour
             PlayerCollisionInteractions pci = col.gameObject.GetComponent<PlayerCollisionInteractions>();
             pci.eventDie?.Invoke();
             AudioManager.Play(pci.player.deathSoundEvent);
+            pci.GetComponent<Animator>().SetTrigger("Death");
         }
 
     }
