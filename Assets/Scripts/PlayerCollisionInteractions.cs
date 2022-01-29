@@ -3,14 +3,20 @@ using UnityEngine.Events;
 
 public class PlayerCollisionInteractions : MonoBehaviour
 {
-    [SerializeField] private Collider2D coll;
-    [SerializeField] private PlayerController player;
+    private Collider2D coll;
+    [HideInInspector] public PlayerController player;
 
     [Header("No Collision Near Vertex")] 
     [SerializeField] private Transform[] noCollisionVertexes;
     [SerializeField] private float radiusNoCollision = 0.1f;
     
     public UnityEvent eventDie;
+
+    private void Start()
+    {
+        player = GetComponent<PlayerController>();
+        coll = GetComponent<Collider2D>();
+    }
 
     // void OnCollisionEnter2D(Collision2D col)
     // {
@@ -45,16 +51,16 @@ public class PlayerCollisionInteractions : MonoBehaviour
     //         }
     //         }
     // }
-    
-    
-//     private void OnCollisionEnter2D(Collision2D other)
-//     {
-//              
-//                 
-//         // if it's a frontal collision and with a certain kind of object, die
-//         var otherMaybeSpawnable = other.gameObject.GetComponent<Spawnable>();
-//         var yOfContact = other.GetContact(0).point.y;
-// =======
+
+
+    //     private void OnCollisionEnter2D(Collision2D other)
+    //     {
+    //              
+    //                 
+    //         // if it's a frontal collision and with a certain kind of object, die
+    //         var otherMaybeSpawnable = other.gameObject.GetComponent<Spawnable>();
+    //         var yOfContact = other.GetContact(0).point.y;
+    // =======
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Spawnable otherMaybeSpawnable = collision.gameObject.GetComponent<Spawnable>();
@@ -65,6 +71,7 @@ public class PlayerCollisionInteractions : MonoBehaviour
             && !IsCloseToNoCollisionVertex(collision.GetContact(0).point))
         {
             eventDie?.Invoke();
+            AudioManager.Play(player.deathSoundEvent);
         }
     }
 

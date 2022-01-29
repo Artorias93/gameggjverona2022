@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    [SerializeField] private Vector2 speed = new Vector2(-6, 0);
+    [SerializeField] private Vector2 speed = new Vector2(-4, 0);
     [SerializeField] private bool infiniteHorizontal = false;
     [SerializeField] private float minSpawnDistance = 0;
     [SerializeField] private float maxSpawnDistance = 10;
