@@ -23,6 +23,7 @@ public class SceneManager : MonoBehaviour
     // public UnityEvent gameOver;
 
     [SerializeField] private int currentLevel;
+    [SerializeField] private bool allowPausing = true;
 
     private bool paused = false;
     // private static SceneManager instance;
@@ -238,7 +239,7 @@ public class SceneManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && allowPausing)
         {
             if(!paused){
                 PauseWorld();

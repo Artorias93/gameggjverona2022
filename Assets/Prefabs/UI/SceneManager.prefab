@@ -1074,12 +1074,24 @@ MonoBehaviour:
     sceneName: Scenes/MainMenu
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
+  - sceneAsset: {fileID: 102900000, guid: 80e22959f5cf77f49a21dbdb5337dd5a, type: 3}
+    sceneName: Scenes/Cutscene_Intro
+  - sceneAsset: {fileID: 102900000, guid: 2f627cbb317d2c042b57cd2e099f87aa, type: 3}
+    sceneName: Scenes/Cutscene_Lv1
+  - sceneAsset: {fileID: 102900000, guid: cb63a5a225be4be4f895a8dd747d61b7, type: 3}
+    sceneName: Scenes/Cutscene_Lv2
+  - sceneAsset: {fileID: 102900000, guid: c4dab253b5257e9428088130e3b597d1, type: 3}
+    sceneName: Scenes/Cutscene_Lv3
+  - sceneAsset: {fileID: 102900000, guid: b56954aaa6bf30d4a94cbb34fad34ce7, type: 3}
+    sceneName: Scenes/Cutscene_Ending
+  - sceneAsset: {fileID: 102900000, guid: b56954aaa6bf30d4a94cbb34fad34ce7, type: 3}
+    sceneName: Scenes/Cutscene_Ending
   levels:
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
-  - sceneAsset: {fileID: 102900000, guid: 4a4206989f656d242a8e6b75e4f257ae, type: 3}
+  - sceneAsset: {fileID: 102900000, guid: 2bf40da4b8563694ab823247d483fd07, type: 3}
     sceneName: Scenes/Level1Static
-  - sceneAsset: {fileID: 102900000, guid: cb451f494b3f0e145bde282dff7c8a7a, type: 3}
+  - sceneAsset: {fileID: 102900000, guid: a3383b0b3f616e54b8a26452a50dcd8a, type: 3}
     sceneName: Scenes/Level2Static
   - sceneAsset: {fileID: 102900000, guid: aa8d191af62f1ff44b7cbbd99b1f03f3, type: 3}
     sceneName: Scenes/Level3Static
@@ -1090,6 +1102,7 @@ MonoBehaviour:
   resumeButtonAnim: {fileID: 9141724036011014376}
   restartButtonAnim: {fileID: 2385913042476329380}
   currentLevel: -1
+  allowPausing: 1
 --- !u!95 &4554799070598765650
 Animator:
   serializedVersion: 3
