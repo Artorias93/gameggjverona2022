@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: db1b6fe76edac8b4c963285f52055b7c
   - enabled: 0
-    path: Assets/Scenes/Level2.unity
+    path: 
     guid: bc486245500e581429e42ee8594c0fb8
   - enabled: 0
     path: Assets/Scenes/Deprecated/PauseMenu.unity
@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscene_Lv3.unity
     guid: c4dab253b5257e9428088130e3b597d1
+  - enabled: 1
+    path: Assets/Scenes/Cutscene_Credits.unity
+    guid: b0a04c716c3feee4faa34acd5088803e
   - enabled: 1
     path: Assets/Scenes/Level1Static.unity
     guid: 4a4206989f656d242a8e6b75e4f257ae

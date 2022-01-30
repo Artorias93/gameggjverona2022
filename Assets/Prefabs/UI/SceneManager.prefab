@@ -1084,8 +1084,8 @@ MonoBehaviour:
     sceneName: Scenes/Cutscene_Lv3
   - sceneAsset: {fileID: 102900000, guid: b56954aaa6bf30d4a94cbb34fad34ce7, type: 3}
     sceneName: Scenes/Cutscene_Ending
-  - sceneAsset: {fileID: 102900000, guid: b56954aaa6bf30d4a94cbb34fad34ce7, type: 3}
-    sceneName: Scenes/Cutscene_Ending
+  - sceneAsset: {fileID: 102900000, guid: b0a04c716c3feee4faa34acd5088803e, type: 3}
+    sceneName: Scenes/Cutscene_Credits
   levels:
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
