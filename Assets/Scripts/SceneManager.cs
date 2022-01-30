@@ -267,6 +267,11 @@ public class SceneManager : MonoBehaviour
         pauseOverlayAnim.SetBool("GameOver", true);
         AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Game_Over);
     }
+
+    public void FreezeTimeDebug()
+    {
+        Time.timeScale = 0;
+    }
     
     void Update()
     {
