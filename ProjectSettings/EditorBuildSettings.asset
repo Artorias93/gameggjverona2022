@@ -38,12 +38,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscene_Lv3.unity
     guid: c4dab253b5257e9428088130e3b597d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1Static.unity
     guid: 4a4206989f656d242a8e6b75e4f257ae
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level2Static.unity
     guid: cb451f494b3f0e145bde282dff7c8a7a
+  - enabled: 1
+    path: Assets/Scenes/Level1Static.unity
+    guid: 2bf40da4b8563694ab823247d483fd07
+  - enabled: 1
+    path: Assets/Scenes/Level2Static.unity
+    guid: a3383b0b3f616e54b8a26452a50dcd8a
   - enabled: 1
     path: Assets/Scenes/Level3Static.unity
     guid: aa8d191af62f1ff44b7cbbd99b1f03f3

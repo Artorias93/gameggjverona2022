@@ -221,7 +221,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6929d4f584a117449b2577fb43070a64, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -615,7 +615,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6929d4f584a117449b2577fb43070a64, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1089,9 +1089,9 @@ MonoBehaviour:
   levels:
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
-  - sceneAsset: {fileID: 102900000, guid: 4a4206989f656d242a8e6b75e4f257ae, type: 3}
+  - sceneAsset: {fileID: 102900000, guid: 2bf40da4b8563694ab823247d483fd07, type: 3}
     sceneName: Scenes/Level1Static
-  - sceneAsset: {fileID: 102900000, guid: cb451f494b3f0e145bde282dff7c8a7a, type: 3}
+  - sceneAsset: {fileID: 102900000, guid: a3383b0b3f616e54b8a26452a50dcd8a, type: 3}
     sceneName: Scenes/Level2Static
   - sceneAsset: {fileID: 102900000, guid: aa8d191af62f1ff44b7cbbd99b1f03f3, type: 3}
     sceneName: Scenes/Level3Static
@@ -1100,6 +1100,7 @@ MonoBehaviour:
   fadeDuration: 1
   pauseOverlayAnim: {fileID: 4554799070598765650}
   resumeButtonAnim: {fileID: 9141724036011014376}
+  restartButtonAnim: {fileID: 2385913042476329380}
   currentLevel: -1
   allowPausing: 1
 --- !u!95 &4554799070598765650
