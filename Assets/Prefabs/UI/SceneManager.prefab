@@ -1086,6 +1086,14 @@ MonoBehaviour:
     sceneName: Scenes/Cutscene_Ending
   - sceneAsset: {fileID: 102900000, guid: b0a04c716c3feee4faa34acd5088803e, type: 3}
     sceneName: Scenes/Cutscene_Credits
+  - sceneAsset: {fileID: 102900000, guid: d005c9de0fe727744ab282606552b2ee, type: 3}
+    sceneName: Scenes/G_Cutscene_Lv1
+  - sceneAsset: {fileID: 102900000, guid: 0887236cd0def60458151f188e979dbd, type: 3}
+    sceneName: Scenes/G_Cutscene_Lv2
+  - sceneAsset: {fileID: 102900000, guid: 0e6ced6727a9a0e489283609636cedfe, type: 3}
+    sceneName: Scenes/G_Cutscene_Lv3
+  - sceneAsset: {fileID: 102900000, guid: 8f60755842b96224aa7d4e7671d5a33b, type: 3}
+    sceneName: Scenes/G_Cutscene_Ending
   levels:
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
