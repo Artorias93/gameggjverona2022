@@ -182,7 +182,7 @@ AnimationClip:
     - time: 33.033333
       value: {fileID: 21300000, guid: 12c860fa355855c43bcf7987bc432e27, type: 3}
     - time: 44.016666
-      value: {fileID: 21300000, guid: 006438c64142cd344829b5a1ea8b96c9, type: 3}
+      value: {fileID: 21300000, guid: e30da69a21610fc49bbbcedd4cbae372, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -213,7 +213,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 5759b03579b01b94685e819424e8cd51, type: 3}
     - {fileID: 21300000, guid: beeb8075e8d864645bbf5b2947ebf01d, type: 3}
     - {fileID: 21300000, guid: 12c860fa355855c43bcf7987bc432e27, type: 3}
-    - {fileID: 21300000, guid: 006438c64142cd344829b5a1ea8b96c9, type: 3}
+    - {fileID: 21300000, guid: e30da69a21610fc49bbbcedd4cbae372, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -394,7 +394,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 54.983334
-    functionName: 
+    functionName: CutsceneEnded
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
