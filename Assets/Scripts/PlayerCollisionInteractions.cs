@@ -68,9 +68,14 @@ public class PlayerCollisionInteractions : MonoBehaviour
         
         if (otherMaybeSpawnable != null
             && normal != transform.up * player.UpsideDownSign()
+            && normal != transform.right
             && !IsCloseToNoCollisionVertex(collision.GetContact(0).point))
         {
             eventDie?.Invoke();
+            
+            // TODO we have a bug: sometimes you die when you hit the series of tombs. print this for inspection
+            Debug.Log($"{name} - Collided at {collision.GetContact(0).point.ToString()}, normal: {normal.ToString()}");
+            
             AudioManager.Play(player.deathSoundEvent);
         }
     }
