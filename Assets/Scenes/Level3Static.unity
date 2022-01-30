@@ -2415,6 +2415,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelController
       objectReference: {fileID: 0}
+    - target: {fileID: 8977166667942599971, guid: f177f74e0ae79a841801ac95e672b24d, type: 3}
+      propertyPath: endLevel.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977166667942599971, guid: f177f74e0ae79a841801ac95e672b24d, type: 3}
+      propertyPath: endLevel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 704849077}
+    - target: {fileID: 8977166667942599971, guid: f177f74e0ae79a841801ac95e672b24d, type: 3}
+      propertyPath: endLevel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNonLevelScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977166667942599971, guid: f177f74e0ae79a841801ac95e672b24d, type: 3}
+      propertyPath: endLevel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f177f74e0ae79a841801ac95e672b24d, type: 3}
 --- !u!1001 &9140711866611759493
