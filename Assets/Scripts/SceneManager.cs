@@ -86,6 +86,7 @@ public class SceneManager : MonoBehaviour
                 AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Menu);
                 break;
             case 1:
+            case 7:
                 AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Endless);
                 break;
             default:
