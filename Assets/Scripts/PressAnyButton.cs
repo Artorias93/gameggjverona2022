@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class PressAnyButton : MonoBehaviour
 {
     public UnityEvent anyButtonPressed;
+
     private void Update()
     {
         if (Input.anyKey)

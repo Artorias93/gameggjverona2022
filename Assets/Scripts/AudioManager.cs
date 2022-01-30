@@ -16,10 +16,16 @@ public struct SoundData
     [HideInInspector] public FMOD.Studio.EventInstance eventInstance;
 }
 
-
-/*
- * USAGE EXAMPLE: AudioManager.Play("Jump");
- */
+public enum AudioGameStateLabel
+{
+    Menu = 0,
+    LV1,
+    LV2,
+    LV3,
+    Cutscene,
+    Game_Over,
+    Endless,
+}
 
 public class AudioManager : MonoBehaviour
 {
@@ -30,6 +36,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         instance = this;
         for (int i = 0; i < sounds.Length; i++)
         {
@@ -38,9 +45,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-      
+        AudioManager.Play("Music");
+        AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Menu);
     }
 
     public static void Play(string soundName)

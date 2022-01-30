@@ -57,6 +57,16 @@ public class GameState : MonoBehaviour
             PlayerPrefs.Save();
         }
         // Debug.Log($"{name} - Score now: {score.ToString()}. Highscore so far: {highScore.ToString()}");
+        
+        // store also deaths
+        int deaths = 0;
+        if (PlayerPrefs.HasKey("Deaths"))
+        {
+            deaths = PlayerPrefs.GetInt("Deaths");
+        }
+        deaths += 1;
+        PlayerPrefs.SetInt("Deaths", deaths);
+        Debug.Log($"{name} - Saving deaths: {deaths}");
     }
 
     private IEnumerator AdvanceScore()
