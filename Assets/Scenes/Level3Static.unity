@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4345658544470683438, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.14615
+      value: 1.0342212
       objectReference: {fileID: 0}
     - target: {fileID: 4345658544470683438, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
       propertyPath: m_LocalScale.y
@@ -1442,6 +1442,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   maxScoreReached:
+    m_PersistentCalls:
+      m_Calls: []
+  emitHighscoreSoFar:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1310221867

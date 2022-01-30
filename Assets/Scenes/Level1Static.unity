@@ -323,6 +323,14 @@ PrefabInstance:
       propertyPath: canSmash
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5399133227006619035, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: verticalJumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295768059071257079, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5070d01c070fd62459ef038389c5f29b, type: 3}
 --- !u!1 &264464184
@@ -1516,6 +1524,9 @@ MonoBehaviour:
   maxScoreReached:
     m_PersistentCalls:
       m_Calls: []
+  emitHighscoreSoFar:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1310221867
 Transform:
   m_ObjectHideFlags: 0
@@ -1856,8 +1867,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205.66998, y: -109.75903}
-  m_SizeDelta: {x: 235.34, y: 41.5181}
+  m_AnchoredPosition: {x: 223.02618, y: -123.423355}
+  m_SizeDelta: {x: 270.0524, y: 68.8467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522825348
 MonoBehaviour:
@@ -1895,7 +1906,11 @@ MonoBehaviour:
   m_Text: 'Press W to jump with Ian
 
 
-    Press I to jump with Nai'
+    Press I to jump with Nai
+
+
+    Press Esc
+    to pause the game'
 --- !u!222 &1522825349
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2242,6 +2257,10 @@ PrefabInstance:
     - target: {fileID: 4742491059203081039, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
       propertyPath: canSmash
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656930326839408419, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6649244a8ad1eec458fdd75c3957ceb4, type: 3}
