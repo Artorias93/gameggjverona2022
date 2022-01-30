@@ -6,6 +6,7 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 [System.Serializable] public class SingleFloatEvent : UnityEvent<float> {}
+[System.Serializable] public class SingleIntEvent : UnityEvent<int> { }
 
 public class GameState : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class GameState : MonoBehaviour
     public SingleFloatEvent scoreChanged;
     public SingleFloatEvent maxScoreSet;
     public UnityEvent maxScoreReached;
+    public SingleIntEvent emitHighscoreSoFar;
 
     private float currentScore;
 
     private float reducedFrameRate = 1 / 24;
     private float lastUpdateTime;
+
+    private bool stopTrigger = false;
     
     // Start is called before the first frame update
     void Start()
@@ -31,13 +35,34 @@ public class GameState : MonoBehaviour
 
         lastUpdateTime = Time.time;
         StartCoroutine(AdvanceScore());
+        
+        // signal high score so far
+        if (!PlayerPrefs.HasKey("Highscore")) {
+            PlayerPrefs.SetInt("Highscore", 0);
+        }
+        emitHighscoreSoFar?.Invoke(PlayerPrefs.GetInt("Highscore"));
+    }
+
+    public void StopAndStoreHighscore()
+    {
+        stopTrigger = true;
+        
+        // store high score
+        var score = (int)currentScore;
+        var highScore = PlayerPrefs.GetInt("Highscore");
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+            // Debug.Log($"{name} - Saving score: {score.ToString()}");
+            PlayerPrefs.Save();
+        }
+        // Debug.Log($"{name} - Score now: {score.ToString()}. Highscore so far: {highScore.ToString()}");
     }
 
     private IEnumerator AdvanceScore()
     {
-        while (true)
+        while (!stopTrigger)
         {
-            yield return new WaitForSeconds(reducedFrameRate);
             var elapsedTime = Time.time - lastUpdateTime;
 
             currentScore += elapsedTime / 1000; // in seconds
@@ -49,6 +74,8 @@ public class GameState : MonoBehaviour
             {
                 maxScoreReached?.Invoke();
             }
+            
+            yield return new WaitForSeconds(reducedFrameRate);
         }
     }
  
