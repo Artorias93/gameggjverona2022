@@ -21435,6 +21435,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3271319166885749289, guid: cad3dced58fc5ce41a1594f459322aa0, type: 3}
+      propertyPath: allowPausing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271319166885749289, guid: cad3dced58fc5ce41a1594f459322aa0, type: 3}
       propertyPath: nonLevelScenes.Array.size
       value: 12
       objectReference: {fileID: 0}
