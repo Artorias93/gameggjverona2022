@@ -1070,8 +1070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonLevelScenes:
-  - sceneAsset: {fileID: 102900000, guid: 237ae90a8dc45d44086bd493a7645f5d, type: 3}
-    sceneName: Scenes/MainMenu
+  - sceneAsset: {fileID: 102900000, guid: 27bcb20a32fe8374fb3885e74d344be6, type: 3}
+    sceneName: Scenes/MainMenuEndless
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
   - sceneAsset: {fileID: 102900000, guid: 80e22959f5cf77f49a21dbdb5337dd5a, type: 3}
