@@ -101,6 +101,9 @@ public class SceneManager : MonoBehaviour
     {
         switch(levelIdx)
         {
+            case 0:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Endless);
+                break;
             case 1:
                 AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.LV1);
                 break;
@@ -275,7 +278,6 @@ public class SceneManager : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(currentLevel);
         if (Input.GetKeyDown(KeyCode.Escape) && allowPausing)
         {
             if(!paused){
