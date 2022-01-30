@@ -236,6 +236,11 @@ public class SceneManager : MonoBehaviour
         
         pauseOverlayAnim.SetBool("GameOver", true);
     }
+
+    public void FreezeTimeDebug()
+    {
+        Time.timeScale = 0;
+    }
     
     void Update()
     {
