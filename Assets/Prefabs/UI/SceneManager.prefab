@@ -1084,6 +1084,8 @@ MonoBehaviour:
     sceneName: Scenes/Cutscene_Lv3
   - sceneAsset: {fileID: 102900000, guid: b56954aaa6bf30d4a94cbb34fad34ce7, type: 3}
     sceneName: Scenes/Cutscene_Ending
+  - sceneAsset: {fileID: 102900000, guid: b56954aaa6bf30d4a94cbb34fad34ce7, type: 3}
+    sceneName: Scenes/Cutscene_Ending
   levels:
   - sceneAsset: {fileID: 102900000, guid: db1b6fe76edac8b4c963285f52055b7c, type: 3}
     sceneName: Scenes/Level1
@@ -1099,6 +1101,7 @@ MonoBehaviour:
   pauseOverlayAnim: {fileID: 4554799070598765650}
   resumeButtonAnim: {fileID: 9141724036011014376}
   currentLevel: -1
+  allowPausing: 1
 --- !u!95 &4554799070598765650
 Animator:
   serializedVersion: 3
