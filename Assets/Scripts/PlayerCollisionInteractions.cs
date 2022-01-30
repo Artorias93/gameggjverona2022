@@ -68,6 +68,7 @@ public class PlayerCollisionInteractions : MonoBehaviour
         
         if (otherMaybeSpawnable != null
             && normal != transform.up * player.UpsideDownSign()
+            && normal != transform.right
             && !IsCloseToNoCollisionVertex(collision.GetContact(0).point))
         {
             eventDie?.Invoke();
