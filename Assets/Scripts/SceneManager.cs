@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities;
+using System.Text.RegularExpressions;
 using Object = UnityEngine.Object;
 
 public class SceneManager : MonoBehaviour
@@ -72,16 +73,45 @@ public class SceneManager : MonoBehaviour
         // UnpauseGame();
         pauseOverlayAnim.SetBool("Fade", false);
         LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        
+        string resultString = Regex.Match(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, @"\d+").Value;
+        AudioManager.SetParameterByName("Music", "GAME STATE", int.Parse(resultString));
     }
 
     public void LoadNonLevelScene(int sceneIdx)
     {
+        switch(sceneIdx)
+        {
+            case 0:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Menu);
+                break;
+            case 1:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Endless);
+                break;
+            default:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Cutscene);
+                break;
+        }
+
         pauseOverlayAnim.SetBool("Fade", false);
         StartCoroutine(LoadSceneAfterCoro(nonLevelScenes[sceneIdx], loadingDelay));
     }
 
     public void LoadLevel(int levelIdx)
     {
+        switch(levelIdx)
+        {
+            case 1:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.LV1);
+                break;
+            case 2:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.LV2);
+                break;
+            case 3:
+                AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.LV3);
+                break;
+        }
+
         pauseOverlayAnim.SetBool("Fade", false);
         StartCoroutine(LoadSceneAfterCoro(levels[levelIdx], loadingDelay));
         currentLevel = levelIdx;
@@ -235,10 +265,12 @@ public class SceneManager : MonoBehaviour
         Time.timeScale = 0;
         
         pauseOverlayAnim.SetBool("GameOver", true);
+        AudioManager.SetParameterByName("Music", "GAME STATE", (int)AudioGameStateLabel.Game_Over);
     }
     
     void Update()
     {
+        Debug.Log(currentLevel);
         if (Input.GetKeyDown(KeyCode.Escape) && allowPausing)
         {
             if(!paused){
