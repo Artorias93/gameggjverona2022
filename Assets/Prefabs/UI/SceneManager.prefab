@@ -221,7 +221,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6929d4f584a117449b2577fb43070a64, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -615,7 +615,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6929d4f584a117449b2577fb43070a64, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1088,6 +1088,7 @@ MonoBehaviour:
   fadeDuration: 1
   pauseOverlayAnim: {fileID: 4554799070598765650}
   resumeButtonAnim: {fileID: 9141724036011014376}
+  restartButtonAnim: {fileID: 2385913042476329380}
   currentLevel: -1
 --- !u!95 &4554799070598765650
 Animator:

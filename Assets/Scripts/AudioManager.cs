@@ -31,15 +31,16 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    void Start()
-    {
         for (int i = 0; i < sounds.Length; i++)
         {
             sounds[i].data.eventInstance = FMODUnity.RuntimeManager.CreateInstance(sounds[i].data.eventString);
             soundsDict.Add(sounds[i].name, sounds[i].data);
         }
+    }
+
+    void Start()
+    {
+      
     }
 
     public static void Play(string soundName)

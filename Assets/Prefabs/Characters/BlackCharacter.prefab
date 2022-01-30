@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.22
+      value: 1.258
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074498, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -116,20 +116,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Size.x
+      value: 2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_Size.y
+      value: 2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8708002033623819516, guid: 7b4c6911d004c66439e8f01e23105536, type: 3}
     - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Color.b
-      value: 0.2264151
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Color.g
-      value: 0.2264151
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074499, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Color.r
-      value: 0.2264151
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465950979374074620, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_GravityScale
@@ -145,19 +153,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Size.x
-      value: 1.0326452
+      value: 0.9961276
       objectReference: {fileID: 0}
     - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Size.y
-      value: 1.936929
+      value: 1.9205594
       objectReference: {fileID: 0}
     - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Offset.x
-      value: 0.046004772
+      value: 0.030356944
       objectReference: {fileID: 0}
     - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_Offset.y
-      value: -0.1008414
+      value: -0.10137153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 7883143431016938587, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -184,6 +200,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3639179764728082247, guid: 34ab62d984c3f294f9b56b54e4acbeb8, type: 3}
   m_PrefabInstance: {fileID: 4195528144901809580}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1431531454
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345658544470683473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46121c1597a7cd94581b3f0115424404, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1876929192
 MonoBehaviour:
   m_ObjectHideFlags: 0

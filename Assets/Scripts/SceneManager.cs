@@ -18,6 +18,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private float fadeDuration;
     [SerializeField] private Animator pauseOverlayAnim;
     [SerializeField] private Animator resumeButtonAnim;
+    [SerializeField] private Animator restartButtonAnim;
     
     // public UnityEvent gameOver;
 
@@ -226,6 +227,12 @@ public class SceneManager : MonoBehaviour
     
     public void GameOver()
     {
+        paused = true;
+        
+        restartButtonAnim.SetTrigger("Normal");
+        
+        Time.timeScale = 0;
+        
         pauseOverlayAnim.SetBool("GameOver", true);
     }
     
